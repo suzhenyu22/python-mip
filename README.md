@@ -1,6 +1,6 @@
 # Python MIP (Mixed-Integer Linear Programming) Tools
 
-fork from coin-or python-mip, and add mac m1 cbc support, you can install using pip: `pip install mip2`.
+**Fork from coin-or python-mip, and add mac m1 cbc support, you can install using pip: `pip install mip2`.**
 
 Package website: **http://python-mip.com**
 
