@@ -3,6 +3,7 @@
 import logging
 from typing import Dict, List, Tuple, Optional, Union
 from sys import platform, maxsize
+from platform import machine as platform_machine
 from os.path import dirname, isfile, exists
 import os
 import multiprocessing as multip
@@ -94,10 +95,10 @@ try:
 
             else:
                 raise NotImplementedError("Win32 platform not supported.")
-        elif platform.lower().startswith("darwin") or platform.lower().startswith(
-            "macos"
-        ):
-            if os_is_64_bit:
+        elif platform.lower().startswith("darwin") or platform.lower().startswith("macos"):
+            if platform_machine().lower().startswith("arm64"):
+                libfile = os.path.join(pathlib, "cbc-c-darwin-arm64.dylib")
+            else:
                 libfile = os.path.join(pathlib, "cbc-c-darwin-x86-64.dylib")
         if not libfile:
             raise NotImplementedError("You operating system/platform is not supported")
